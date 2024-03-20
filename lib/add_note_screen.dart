@@ -74,6 +74,7 @@ class _AddNoteScreenState extends State<AddNoteScreen> {
       child: Observer(
         builder: (context) {
           return Scaffold(
+
             backgroundColor: Color(_note.selectedColor),
             appBar: _buildAppbar(),
             body: Stack(
@@ -246,46 +247,6 @@ class _AddNoteScreenState extends State<AddNoteScreen> {
       ),
     );
   }
-
-  //  _saveNote() async {
-  //   if (titleController.text.isNotEmpty ||
-  //       noteController.text.isNotEmpty ||
-  //       _pickedImagePaths.isNotEmpty) {
-  //     // If editingNote is provided, update the existing note
-  //     if (widget.editingNote != null) {
-  //       await _firebaseService.updateNoteInFirestore(
-  //         widget.editingNote!.id as AddNote,
-  //         AddNote( // Assuming your update method takes an AddNote object
-  //           title: titleController.text,
-  //           note: noteController.text,
-  //           color: _count.selectedColor,
-  //           backImage: _count.selectedBackgroundImage,
-  //           imagePaths: List.from(_pickedImagePaths),
-  //         ),
-  //       );
-  //     } else {
-  //       // If no editingNote is provided, add a new note
-  //       await _firebaseService.addNoteToFirestore(
-  //         AddNote( // Assuming your add method takes an AddNote object
-  //           title: titleController.text,
-  //           note: noteController.text,
-  //           color: _count.selectedColor,
-  //           backImage: _count.selectedBackgroundImage,
-  //           imagePaths: List.from(_pickedImagePaths),
-  //         ),
-  //       );
-  //     }
-  //
-  //     Navigator.pop(context);
-  //   } else {
-  //     Navigator.pop(context);
-  //     ScaffoldMessenger.of(context).showSnackBar(
-  //       const SnackBar(
-  //         content: Text('Empty note discarded'),
-  //       ),
-  //     );
-  //   }
-  // }
 
   void _showBottomSheetWithMessage() {
     showModalBottomSheet(
@@ -659,8 +620,8 @@ class _AddNoteScreenState extends State<AddNoteScreen> {
     const Color(0xff91F48F),
     const Color(0xffB69CFF),
     const Color(0xff229810),
-    const Color(0xff4612d9),
-    const Color(0xfffc1374),
+    const Color(0x7ec4e4f1),
+    const Color(0xffa5ceef),
   ];
   final List<String> _backgroundImageOptions = [
     'https://www.pixelstalk.net/wp-content/uploads/2016/06/Free-Images-Wallpaper-HD-Background.jpg',

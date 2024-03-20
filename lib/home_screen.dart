@@ -62,7 +62,7 @@ class _HomeScreenState extends State<HomeScreen> {
           width: double.infinity,
           height: 55,
           decoration: BoxDecoration(
-            color: const Color(0xFFD0E5EEFF),
+            color: const Color(0xFFFFFFFF),
             borderRadius: BorderRadius.circular(30),
           ),
           child: Row(
@@ -322,8 +322,8 @@ class _HomeScreenState extends State<HomeScreen> {
                   isSelected ? Colors.blue.withOpacity(0.2) : (note.color != null ? Color(note.color!) : Colors.white),
               borderRadius: BorderRadius.circular(8),
               border: Border.all(
-                color: isSelected ? Colors.blue : Colors.transparent,
-                width: 2,
+                color: isSelected ? Colors.blue : Colors.grey,
+                width: 1,
               ),
               image: note.backImage != null && note.backImage!.isNotEmpty
                   ? DecorationImage(
@@ -458,7 +458,6 @@ class _HomeScreenState extends State<HomeScreen> {
                 _shareSelectedNotes(_note.selectedNotes);
                 break;
             }
-
           },
           itemBuilder: (BuildContext context) {
             return [
@@ -489,6 +488,7 @@ class _HomeScreenState extends State<HomeScreen> {
       ],
     );
   }
+
   void _shareSelectedNotes(ObservableList<dynamic> selectedNotes) {
     // List<String> noteContents = [];
     //
@@ -503,7 +503,6 @@ class _HomeScreenState extends State<HomeScreen> {
 
     Share.share(shareText);
   }
-
 
   void _deleteSelectedNotes() {
     for (String noteId in _note.selectedNotes) {

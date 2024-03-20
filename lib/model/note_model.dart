@@ -27,6 +27,17 @@ class AddNote {
   factory AddNote.fromJson(Map<String, dynamic> json) => _$AddNoteFromJson(json);
 
   Map<String, dynamic> toJson() => _$AddNoteToJson(this);
+  factory AddNote.fromFirestore(Map<String, dynamic> data, String documentId) {
+    return AddNote(
+      id: documentId,
+      title: data['title'],
+      note: data['note'],
+      color: data['color'],
+      backImage: data['backImage'],
+      imagePaths: List<String>.from(data['imagePaths'] ?? []),
+      isPinned: data['isPinned'] ?? false,
+    );
+  }
 
   @override
   String toString() => jsonEncode(toJson());
