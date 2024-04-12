@@ -31,7 +31,7 @@ class _SearchScreenState extends State<SearchScreen> {
             onPressed: () {
               _searchController.clear();
               setState(() {
-                selectedColor = null; // Clear selected color when search is cleared
+                selectedColor = null;
               });
             },
           ),
@@ -85,7 +85,7 @@ class _SearchScreenState extends State<SearchScreen> {
                     final color = noteColors[index];
                     return GestureDetector(
                       onTap: () {
-                        setState(() {
+                        setState((){
                           selectedColor = color;
                         });
                       },
@@ -124,7 +124,7 @@ class _SearchScreenState extends State<SearchScreen> {
                       final noteColor = (notes[index].data() as Map<String, dynamic>)['color'] as int?;
                       if (noteColor == selectedColor) {
                         final noteTitle = (notes[index].data() as Map<String, dynamic>)['title'] as String?;
-                        final noteNote = (notes[index].data() as Map<String, dynamic>)['note'] as String?;
+                        final note = (notes[index].data() as Map<String, dynamic>)['note'] as String?;
                         return Padding(
                           padding: const EdgeInsets.only(right: 12, top: 12),
                           child: Container(
@@ -136,23 +136,27 @@ class _SearchScreenState extends State<SearchScreen> {
                               title: Column(
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
-                                  if (noteTitle != null && noteTitle.isNotEmpty) const SizedBox(height: 4),
                                   if (noteTitle != null && noteTitle.isNotEmpty)
-                                    Text(
-                                      noteTitle,
-                                      style: const TextStyle(
-                                        fontWeight: FontWeight.bold,
-                                        fontSize: 16,
-                                      ),
+                                    Column(
+                                      children: [
+                                        const SizedBox(height: 4),
+                                        Text(
+                                          noteTitle,
+                                          style: const TextStyle(
+                                            fontWeight: FontWeight.bold,
+                                            fontSize: 16,
+                                          ),
+                                        ),
+                                      ],
                                     ),
                                   if (noteTitle != null &&
                                       noteTitle.isNotEmpty &&
-                                      noteNote != null &&
-                                      noteNote.isNotEmpty)
+                                      note != null &&
+                                      note.isNotEmpty)
                                     const SizedBox(height: 4),
-                                  if (noteNote != null && noteNote.isNotEmpty)
+                                  if (note != null && note.isNotEmpty)
                                     Text(
-                                      noteNote,
+                                      note,
                                       style: const TextStyle(fontSize: 14),
                                     ),
                                 ],

@@ -16,26 +16,31 @@ class _ArchiveScreenState extends State<ArchiveScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: _appbarwidget(),
-        body:  _centerwidget(),
-        drawer: const DrawerScreen(),
-  );
+      appBar: _appbarwidget(),
+      body: _centerwidget(),
+      drawer: const DrawerScreen(),
+    );
   }
-  _appbarwidget(){
+
+  _appbarwidget() {
     return AppBar(
       elevation: 0,
       backgroundColor: Colors.white,
       leading: Builder(builder: (context) {
         return GestureDetector(
-            onTap: () {
-              Scaffold.of(context).openDrawer();
-            },
-            child: const Icon(
-              Icons.menu,
-              color: Colors.black,
-            ));
+          onTap: () {
+            Scaffold.of(context).openDrawer();
+          },
+          child: const Icon(
+            Icons.menu,
+            color: Colors.black,
+          ),
+        );
       }),
-      title: const Text("Archive",style: TextStyle(color: Colors.black),),
+      title: const Text(
+        "Archive",
+        style: TextStyle(color: Colors.black),
+      ),
       actions: [
         GestureDetector(
           onTap: () {
@@ -51,7 +56,9 @@ class _ArchiveScreenState extends State<ArchiveScreen> {
             color: Colors.black,
           ),
         ),
-        const SizedBox(width: 10,),
+        const SizedBox(
+          width: 10,
+        ),
         IconButton(
           onPressed: () {
             setState(() {
@@ -70,12 +77,17 @@ class _ArchiveScreenState extends State<ArchiveScreen> {
       ],
     );
   }
-  Widget _centerwidget(){
+
+  Widget _centerwidget() {
     return const Center(
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          Icon( Icons.archive_outlined, color: Colors.orangeAccent,size: 130,),
+          Icon(
+            Icons.archive_outlined,
+            color: Colors.orangeAccent,
+            size: 130,
+          ),
           Text("Your archived notes appear here"),
         ],
       ),
