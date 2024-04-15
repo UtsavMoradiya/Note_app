@@ -15,7 +15,6 @@ class _ShaderState extends State<Shader> {
         children: [
           ShaderMask(
             shaderCallback: (Rect bounds) {
-              // Create a linear gradient shader for the mask
               return const LinearGradient(
                 colors: [Colors.yellow, Colors.red],
                 stops: [0.5, 0.9],
@@ -29,11 +28,10 @@ class _ShaderState extends State<Shader> {
               fit: BoxFit.fill,
             ),
           ),
-          SizedBox(height: 50,),
+          const SizedBox(height: 50,),
           ShaderMask(
             shaderCallback: (Rect bounds) {
-              // Create a linear gradient shader for the mask
-              return LinearGradient(
+              return const LinearGradient(
                 colors: [Colors.greenAccent, Colors.blue],
                 stops: [0.5, 0.9],
                 begin: Alignment.topCenter,

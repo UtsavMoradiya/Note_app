@@ -64,7 +64,7 @@ class FirebaseService {
         'color': note.color,
         'imagePaths': note.imagePaths,
         'backImage': note.backImage,
-        'isPinned': note.isPinned, // Add this line
+        'isPinned': note.isPinned,
       });
     } catch (e) {
       print('Error updating note: $e');
